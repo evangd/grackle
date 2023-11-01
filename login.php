@@ -33,12 +33,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Egret</title>
+    <title>Login - Grackle</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <form id="login" method="POST">
-        <h1 class='login-title'>Egret</h1>
+        <h1 class='login-title'>Grackle</h1>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username">
         <label for="password">Password:</label>
