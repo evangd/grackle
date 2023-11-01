@@ -36,7 +36,16 @@ if (isset($_POST['send'])) {
             </div>
         </div>
         <div id="messages">
+            <?php
+            // obviously will have to join some stuff later
+            $stmt = $pdo->prepare('SELECT message FROM messages');
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+            foreach ($rows as $row) {
+                echo '<p>'. $row['message'] . '</p>';
+            }
+            ?>
         </div>
         <form id="chatbar" method="POST">
             <textarea name="message"></textarea>
