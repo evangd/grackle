@@ -7,6 +7,17 @@ if (!isset($_SESSION['id'])) {
     header('Location: login.php');
 }
 
+if (isset($_POST['send'])) {
+
+    $stmt = $pdo->prepare('INSERT INTO messages (message, user_id) 
+        VALUES (:message, :user_id)');
+    $stmt->execute(array(
+        ':message' => $_POST['message'],
+        ':user_id' => $_SESSION['id']
+    ));
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +29,33 @@ if (!isset($_SESSION['id'])) {
 </head>
 <body>
     <div id="grid-container">
-        <textarea></textarea>
+        <div id="sidebar">
+            <div id="account">
+                <p>Hello there, <?php echo $_SESSION['first_name']; ?>!</p>
+
+            </div>
+        </div>
+        <div id="messages">
+
+        </div>
+        <form id="chatbar" method="POST">
+            <textarea name="message"></textarea>
+            <button type="submit" name="send" disabled>Send</button>
+        </form>
     </div>
+    <script>
+        const chatbar = document.querySelector('textarea');
+        const send = document.querySelector('button[name="send"]');
+
+        chatbar.addEventListener('keyup', function(e) {
+
+            if (e.target.value !== "") {
+                send.disabled = false;
+            } else {
+                send.disabled = true;
+            }
+
+        });
+    </script>
 </body>
 </html>

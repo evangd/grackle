@@ -37,7 +37,7 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <form method="POST">
+    <form id="login" method="POST">
         <h1 class='login-title'>Egret</h1>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username">
