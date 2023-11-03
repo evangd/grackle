@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-    height: 96vh;
+    height: 97vh;
     width: 100vw;
 }
 
@@ -46,9 +46,15 @@ input[type="text"], input[type="password"] {
     grid-row: 1 / -1;
 }
 
+#account {
+    text-align: center;
+}
+
 #messages {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+
+    overflow: scroll;
 }
 
 #chatbar {
@@ -60,5 +66,5 @@ input[type="text"], input[type="password"] {
 }
 
 #chatbar textarea {
-
+    resize: vertical;
 }
