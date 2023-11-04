@@ -21,7 +21,7 @@ if (!isset($_SESSION['id'])) {
     <div id="grid-container">
         <div id="sidebar">
             <div id="account">
-                <p>Hello there, <?php echo $_SESSION['first_name']; ?>!</p>
+                <p>Hello there, <strong><?php echo $_SESSION['first_name']; ?></strong>!</p>
 
             </div>
         </div>
@@ -75,7 +75,7 @@ if (!isset($_SESSION['id'])) {
                 cache: false,
                 success: function(messages) {
                     $('#messages').empty();
-                    for (let i = messages.length - 1; i >= 0; --i) {
+                    for (let i = 0; i < messages.length; ++i) {
                         msg = messages[i];
 
                         $('#messages').append(`<p><strong> 

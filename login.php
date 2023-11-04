@@ -16,7 +16,14 @@
             $_SESSION['first_name'] = $row['first_name'];
             $_SESSION['last_name'] = $row['last_name'];
             $_SESSION['color'] = $row['color'];
-            $_SESSION['count'] = 0;
+
+            // Get the most recent message and pull all session messages after that
+
+            $stmt2 = $pdo->prepare('SELECT id FROM messages ORDER BY id DESC LIMIT 1');
+            $stmt2->execute();
+            $lastMsg = $stmt2->fetch(PDO::FETCH_ASSOC);
+
+            $_SESSION['start'] = $lastMsg['id'];
 
             header('Location: index.php');
             return;
