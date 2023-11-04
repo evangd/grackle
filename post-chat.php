@@ -4,6 +4,8 @@ require_once 'pdo.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
+$_SESSION['count'] += 1;
+
 $message = json_decode(file_get_contents('php://input'));
 
 $stmt = $pdo->prepare('INSERT INTO messages (message, user_id, time) 

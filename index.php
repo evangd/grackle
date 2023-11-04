@@ -7,30 +7,6 @@ if (!isset($_SESSION['id'])) {
     header('Location: login.php');
 }
 
-if (isset($_POST['message'])) {
-
-    if (!isset($_SESSION['chat'])) {
-        $_SESSION['chat'] = [];
-    }
-
-    $_SESSION['chat'][] = array(
-        $_SESSION['first_name'] . ' ' . $_SESSION['last_name'],
-        $_POST['message'],
-        date('g:i a')
-    );
-
-    // header('Location: index.php');
-    // return;
-
-    // $stmt = $pdo->prepare('INSERT INTO messages (message, user_id) 
-    //     VALUES (:message, :user_id)');
-    // $stmt->execute(array(
-    //     ':message' => $_POST['message'],
-    //     ':user_id' => $_SESSION['id']
-    // ));
-
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,7 +75,7 @@ if (isset($_POST['message'])) {
                 cache: false,
                 success: function(messages) {
                     $('#messages').empty();
-                    for (let i = 0; i < messages.length; ++i) {
+                    for (let i = messages.length - 1; i >= 0; --i) {
                         msg = messages[i];
 
                         $('#messages').append(`<p><strong> 
