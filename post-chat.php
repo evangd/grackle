@@ -14,3 +14,5 @@ $stmt->execute(array(
     ':message' => $message->message,
     ':user_id' => $_SESSION['id']
 ));
+
+echo true; // Make sure AJAX call gets reponse

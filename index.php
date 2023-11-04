@@ -64,6 +64,7 @@ if (isset($_POST['message'])) {
             if (e.target.value !== "") {
                 send.disabled = false;
                 if (e.key === 'Enter') {
+                    e.preventDefault();
                     send.click();
                 }
             } else {
@@ -74,20 +75,16 @@ if (isset($_POST['message'])) {
 
         send.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log(`Click listener fired with value: ${chatbar.value}`);
             $.ajax({
-                url: 'chat-out.php',
+                url: 'post-chat.php',
                 type: 'POST',
                 data: JSON.stringify({
                     message: chatbar.value,
                     time: Date.now().toString()
                 }),
-                contentType: 'application/json',
+                contentType: 'application/json; charset=utf-8',
                 success: function() {
                     console.log('Post sent!');
-                },
-                error: function() {
-                    console.log('ERROR');
                 }
             });
 
@@ -96,15 +93,15 @@ if (isset($_POST['message'])) {
 
         function getNewChats() {
             $.ajax({
-                url: 'chat-in.php',
+                url: 'get-chat.php',
                 cache: false,
                 success: function(messages) {
                     $('#messages').empty();
                     for (let i = 0; i < messages.length; ++i) {
                         msg = messages[i];
 
-                        $('#messages').append(`<p><strong> ${msg[0]}:</strong>
-                         ${msg[1]}<br>${msg[2]}`);
+                        $('#messages').append(`<p><strong> NAME:</strong>
+                         ${msg['message']}`);
                     }
 
                     setTimeout(getNewChats(), 4000);
@@ -112,7 +109,7 @@ if (isset($_POST['message'])) {
             });
         }
 
-        // getNewChats();
+        getNewChats();
     </script>
 </body>
 </html>
