@@ -6,13 +6,12 @@ header('Content-Type: application/json; charset=utf-8');
 
 $message = json_decode(file_get_contents('php://input'));
 
-// okay I still need to work on this
-
-$stmt = $pdo->prepare('INSERT INTO messages (message, user_id) 
-    VALUES (:message, :user_id)');
+$stmt = $pdo->prepare('INSERT INTO messages (message, user_id, time) 
+    VALUES (:message, :user_id, :time)');
 $stmt->execute(array(
     ':message' => $message->message,
-    ':user_id' => $_SESSION['id']
+    ':user_id' => $_SESSION['id'],
+    ':time' => $message->time
 ));
 
 echo true; // Make sure AJAX call gets reponse

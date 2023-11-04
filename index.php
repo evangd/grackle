@@ -80,7 +80,7 @@ if (isset($_POST['message'])) {
                 type: 'POST',
                 data: JSON.stringify({
                     message: chatbar.value,
-                    time: Date.now().toString()
+                    time: new Date().toLocaleTimeString('en-US')
                 }),
                 contentType: 'application/json; charset=utf-8',
                 success: function() {
@@ -100,8 +100,9 @@ if (isset($_POST['message'])) {
                     for (let i = 0; i < messages.length; ++i) {
                         msg = messages[i];
 
-                        $('#messages').append(`<p><strong> NAME:</strong>
-                         ${msg['message']}`);
+                        $('#messages').append(`<p><strong> 
+                        ${msg['first_name'] + ' ' + msg['last_name']}:</strong>
+                         ${msg['message']}<br>${msg['time']}</p>`);
                     }
 
                     setTimeout(getNewChats(), 4000);
