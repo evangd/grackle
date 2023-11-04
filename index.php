@@ -76,11 +76,23 @@ if (isset($_POST['message'])) {
 
         })
 
+        send.addEventListener('click', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'chat-out.php',
+                cache: false,
+                data: JSON.stringify({
+                    message: chatbar.value,
+                    time: Date.now().toString()
+                })
+            });
+        });
+
         function getNewChats() {
             $.ajax({
-                url: 'chat.php',
+                url: 'chat-in.php',
                 cache: false,
-                async: true,
                 success: function(messages) {
                     $('#messages').empty();
                     for (let i = 0; i < messages.length; ++i) {
