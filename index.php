@@ -59,10 +59,6 @@ if (isset($_POST['message'])) {
         const chatbar = document.querySelector('textarea');
         const send = document.querySelector('button[name="send"]');
 
-        $(document).ready(function() {
-            console.log("fuck this");
-        });
-
         chatbar.addEventListener('keydown', function(e) {
 
             if (e.target.value !== "") {
@@ -78,15 +74,24 @@ if (isset($_POST['message'])) {
 
         send.addEventListener('click', function(e) {
             e.preventDefault();
+            console.log(`Click listener fired with value: ${chatbar.value}`);
             $.ajax({
-                type: 'POST',
                 url: 'chat-out.php',
-                cache: false,
+                type: 'POST',
                 data: JSON.stringify({
                     message: chatbar.value,
                     time: Date.now().toString()
-                })
+                }),
+                contentType: 'application/json',
+                success: function() {
+                    console.log('Post sent!');
+                },
+                error: function() {
+                    console.log('ERROR');
+                }
             });
+
+            chatbar.value = '';
         });
 
         function getNewChats() {
@@ -107,7 +112,7 @@ if (isset($_POST['message'])) {
             });
         }
 
-        getNewChats();
+        // getNewChats();
     </script>
 </body>
 </html>
