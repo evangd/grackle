@@ -85,10 +85,12 @@ if (isset($_POST['message'])) {
                 contentType: 'application/json; charset=utf-8',
                 success: function() {
                     console.log('Post sent!');
+                    $('#messages').scrollTop($('#messages')[0].scrollHeight);
                 }
             });
 
             chatbar.value = '';
+            $('#messages').scrollTop($('#messages')[0].scrollHeight);
         });
 
         function getNewChats() {
