@@ -11,7 +11,7 @@ $stmt = $pdo->prepare('INSERT INTO messages (message, user_id, time)
 $stmt->execute(array(
     ':message' => htmlentities($message->message),
     ':user_id' => $_SESSION['id'],
-    ':time' => $message->time
+    ':time' => htmlentities($message->time)
 ));
 
-echo true; // Make sure AJAX call gets reponse
+echo true; // Make sure AJAX call gets response
