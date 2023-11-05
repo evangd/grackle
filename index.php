@@ -49,7 +49,8 @@ if (!isset($_SESSION['id'])) {
         });
 
         chatbar.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
+            // Still need to make the line break actually show up lol. Might be htmlentities()
+            if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 if (!send.disabled) send.click();
             }
