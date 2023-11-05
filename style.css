@@ -1,5 +1,6 @@
 :root {
-    font-size: 18px;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
     --user-color: black;
 }
 
@@ -63,8 +64,36 @@ input[type="text"], input[type="password"] {
 
     display: grid;
     grid-template-columns: 1fr 50px;
+    gap: 1rem;
 }
 
 #chatbar textarea {
-    resize: vertical;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    padding: 0rem 1.5rem;
+    font-family: inherit;
+    line-height: 1rem;
+}
+
+#chatbar textarea:focus {
+    outline: none;
+    border: 2px solid var(--user-color);
+}
+
+#chatbar button {
+    border-radius: 25px;
+    border: none;
+    background-color: var(--user-color);
+    color: white;
+    font-family: inherit;
+}
+
+#chatbar button:hover {
+    cursor: pointer;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    font-style: italic;
 }

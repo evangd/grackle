@@ -14,6 +14,9 @@ if (!isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grackle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <script src="jquery-3.7.1.js" type="text/javascript"></script>
 </head>
@@ -27,7 +30,7 @@ if (!isset($_SESSION['id'])) {
         </div>
         <div id="messages"></div>
         <form id="chatbar" method="POST" action="index.php">
-            <textarea name="message" rows="1" autofocus></textarea>
+            <textarea name="message" rows="1" maxlength="255" autofocus></textarea>
             <button type="submit" name="send" disabled>Send</button>
         </form>
     </div>
@@ -79,7 +82,7 @@ if (!isset($_SESSION['id'])) {
 
                         $('#messages').append(`<p><strong> 
                         ${msg['first_name'] + ' ' + msg['last_name']}:</strong>
-                         ${msg['message']}<br>${msg['time']}</p>`);
+                         ${msg['message']}<br><span class="timestamp">${msg['time']}</span></p>`);
                     }
 
                     if (messageSent) {
