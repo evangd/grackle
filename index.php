@@ -24,7 +24,7 @@ if (!isset($_SESSION['id'])) {
     <div id="grid-container">
         <div id="sidebar">
             <div id="account">
-                <p>Hello there, <strong><?php echo $_SESSION['first_name']; ?></strong>!</p>
+                <p>Hello there, <strong><?php echo htmlentities($_SESSION['first_name']); ?></strong>!</p>
 
             </div>
         </div>

@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-    height: 97vh; /*need to fix this */
+    height: 100vh;
     width: 100vw;
 }
 
@@ -20,6 +20,10 @@ body {
     width: 300px;
     margin: auto;
     gap: 0.25rem;
+}
+
+#login button {
+    font-family: inherit;
 }
 
 input[type="text"], input[type="password"] {
@@ -38,7 +42,7 @@ input[type="text"], input[type="password"] {
     display: grid;
 
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 3rem;
+    grid-template-rows: 1fr auto;
 }
 
 #sidebar {
@@ -76,7 +80,7 @@ input[type="text"], input[type="password"] {
 
 #chatbar textarea {
     resize: none;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 2rem;
     padding: 0.75rem 1.5rem;
     font-family: inherit;
@@ -90,7 +94,7 @@ input[type="text"], input[type="password"] {
 }
 
 #chatbar button {
-    border-radius: 25px;
+    border-radius: 50%;
     border: 2px solid var(--user-color);
     color: var(--user-color);
     font-family: inherit;
@@ -106,9 +110,9 @@ input[type="text"], input[type="password"] {
 }
 
 /* change grid layout on mobile devices */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     #grid-container {
-        grid-template-rows: 3rem 1fr 3rem;
+        grid-template-rows: auto 1fr auto;
     }
 
     #sidebar, #messages, #chatbar {
@@ -117,6 +121,7 @@ input[type="text"], input[type="password"] {
 
     #sidebar {
         grid-row: 1 / 2;
+        border-bottom: 1px solid #ccc;
     }
 
     #messages {
