@@ -59,7 +59,7 @@ input[type="text"], input[type="password"] {
 #messages {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    padding: 0 1rem 1rem 1rem;
+    padding: 0 1rem;
 
     overflow: scroll;
 }
@@ -86,11 +86,13 @@ input[type="text"], input[type="password"] {
     font-family: inherit;
     line-height: 1.25rem;
     height: 1.25rem;
+    background-color: #eee;
 }
 
 #chatbar textarea:focus {
     outline: none;
-    border: 2px solid var(--user-color);
+    border-color: var(--user-color);
+    background-color: white;
 }
 
 #chatbar button {
@@ -98,6 +100,10 @@ input[type="text"], input[type="password"] {
     border: 2px solid var(--user-color);
     color: var(--user-color);
     font-family: inherit;
+}
+
+#chatbar button:disabled {
+    border-color: #ccc;
 }
 
 #chatbar button:hover {

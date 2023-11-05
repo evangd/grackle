@@ -39,19 +39,22 @@ if (!isset($_SESSION['id'])) {
         const send = document.querySelector('button[name="send"]');
         let messageSent = false;
 
-        chatbar.addEventListener('keydown', function(e) {
-
-            if (e.target.value !== "") {
-                send.disabled = false;
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    send.click();
-                }
-            } else {
+        // check to see if send should be enabled
+        chatbar.addEventListener('keyup', function(e) {
+            if ( e.target.value === '') {
                 send.disabled = true;
+            } else {
+                send.disabled = false;
             }
+        });
 
-        })
+        chatbar.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (!send.disabled) send.click();
+            }
+        });
+            
 
         send.addEventListener('click', function(e) {
             e.preventDefault();
