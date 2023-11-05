@@ -72,6 +72,7 @@ if (!isset($_SESSION['id'])) {
             });
 
             chatbar.value = '';
+            send.disabled = true;
         });
 
         function getNewChats() {

@@ -100,10 +100,12 @@ input[type="text"], input[type="password"] {
     border: 2px solid var(--user-color);
     color: var(--user-color);
     font-family: inherit;
+    background-color: white;
 }
 
 #chatbar button:disabled {
     border-color: #ccc;
+    background-color: #eee;
 }
 
 #chatbar button:hover {
