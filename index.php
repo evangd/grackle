@@ -34,6 +34,7 @@ if (!isset($_SESSION['id'])) {
     <script>
         const chatbar = document.querySelector('textarea');
         const send = document.querySelector('button[name="send"]');
+        let messageSent = false;
 
         chatbar.addEventListener('keydown', function(e) {
 
@@ -60,13 +61,11 @@ if (!isset($_SESSION['id'])) {
                 }),
                 contentType: 'application/json; charset=utf-8',
                 success: function() {
-                    console.log('Post sent!');
-                    $('#messages').scrollTop($('#messages')[0].scrollHeight);
+                    messageSent = true;
                 }
             });
 
             chatbar.value = '';
-            $('#messages').scrollTop($('#messages')[0].scrollHeight);
         });
 
         function getNewChats() {
@@ -82,6 +81,12 @@ if (!isset($_SESSION['id'])) {
                         ${msg['first_name'] + ' ' + msg['last_name']}:</strong>
                          ${msg['message']}<br>${msg['time']}</p>`);
                     }
+
+                    if (messageSent) {
+                        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+                    }
+
+                    messageSent = false;
 
                     setTimeout(getNewChats(), 4000);
                 }
