@@ -1,4 +1,5 @@
 <?php
+    session_save_path('sessions');
     session_start();
 
     require_once 'pdo.php';
@@ -18,6 +19,7 @@
             $_SESSION['color'] = $row['color'];
 
             // Get the most recent message and pull all session messages after that
+            // NOTE: I'm just making a dummy message so that I don't have to change this lol
 
             $stmt2 = $pdo->prepare('SELECT id FROM messages ORDER BY id DESC LIMIT 1');
             $stmt2->execute();
