@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-    height: 97vh;
+    height: 97vh; /*need to fix this */
     width: 100vw;
 }
 
@@ -34,17 +34,18 @@ input[type="text"], input[type="password"] {
 
 #grid-container {
     height: 100%;
-    max-width: 800px;
-    margin: auto;
+    
     display: grid;
 
-    grid-template-columns: 600px 200px;
+    grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 3rem;
 }
 
 #sidebar {
     grid-column: 2 / -1;
     grid-row: 1 / -1;
+    
+    border-left: 1px solid #ccc;
 }
 
 #account {
@@ -54,6 +55,7 @@ input[type="text"], input[type="password"] {
 #messages {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    padding: 0 1rem 1rem 1rem;
 
     overflow: scroll;
 }
@@ -65,15 +67,21 @@ input[type="text"], input[type="password"] {
     display: grid;
     grid-template-columns: 1fr 50px;
     gap: 1rem;
+    align-content: center;
+    align-self: center;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+    background-color: white;
 }
 
 #chatbar textarea {
     resize: none;
     border: 1px solid #ccc;
     border-radius: 2rem;
-    padding: 0rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     font-family: inherit;
-    line-height: 1rem;
+    line-height: 1.25rem;
+    height: 1.25rem;
 }
 
 #chatbar textarea:focus {
@@ -83,9 +91,8 @@ input[type="text"], input[type="password"] {
 
 #chatbar button {
     border-radius: 25px;
-    border: none;
-    background-color: var(--user-color);
-    color: white;
+    border: 2px solid var(--user-color);
+    color: var(--user-color);
     font-family: inherit;
 }
 
@@ -96,4 +103,27 @@ input[type="text"], input[type="password"] {
 .timestamp {
     font-size: 0.75rem;
     font-style: italic;
+}
+
+/* change grid layout on mobile devices */
+@media screen and (max-width: 600px) {
+    #grid-container {
+        grid-template-rows: 3rem 1fr 3rem;
+    }
+
+    #sidebar, #messages, #chatbar {
+        grid-column: 1 / -1;
+    }
+
+    #sidebar {
+        grid-row: 1 / 2;
+    }
+
+    #messages {
+        grid-row: 2 / 3;
+    }
+
+    #chatbar {
+        grid-row: 3 / -1;
+    }
 }
