@@ -12,6 +12,7 @@ Grackle is a web-based chatroom app that uses AJAX to send and display messages 
 
 #### Now
 - Add account management features
+- Fix having to scroll to see new messages from other users
 - Make it prettier
 
 #### Later
