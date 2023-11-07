@@ -26,20 +26,23 @@ if (!isset($_SESSION['id'])) {
         <div id="sidebar">
             <div id="account">
                 <p>Hello there, <strong><?php echo htmlentities($_SESSION['first_name']); ?></strong>!</p>
-                <h3>Who's on?</h3>
-                <ul id="users">
-                <?php
-                $currUsers = $pdo->prepare('SELECT first_name, last_name 
-                    FROM users WHERE online = 1');
-                $currUsers->execute();
-                $rows = $currUsers->fetchAll(PDO::FETCH_ASSOC);
+            </div>
+            <h3>Who's on?</h3>
+            <ul id="users">
+            <?php
+            $currUsers = $pdo->prepare('SELECT id, first_name, last_name 
+                FROM users WHERE online = 1');
+            $currUsers->execute();
+            $rows = $currUsers->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($rows as $row) {
+            echo '<li>You</li>';
+            foreach ($rows as $row) {
+                if ($row['id'] !== $_SESSION['id']) {
                     echo '<li>'. $row['first_name'] . ' ' . $row['last_name'] . '</li>';
                 }
-                ?>
-                </ul>
-            </div>
+            }
+            ?>
+            </ul>
         </div>
         <div id="messages"></div>
         <form id="chatbar" method="POST" action="index.php">

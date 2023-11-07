@@ -52,6 +52,11 @@ input[type="text"], input[type="password"] {
     border-left: 1px solid #ccc;
 }
 
+#users {
+    padding: 0;
+    list-style-type: none;
+}
+
 #account {
     text-align: center;
 }
