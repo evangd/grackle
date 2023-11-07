@@ -38,7 +38,6 @@ if (!isset($_SESSION['id'])) {
     <script>
         const chatbar = document.querySelector('textarea');
         const send = document.querySelector('button[name="send"]');
-        let messageSent = false;
 
         // check to see if send should be enabled
         chatbar.addEventListener('keyup', function(e) {
@@ -67,10 +66,7 @@ if (!isset($_SESSION['id'])) {
                     message: chatbar.value,
                     time: new Date().toLocaleTimeString('en-US')
                 }),
-                contentType: 'application/json; charset=utf-8',
-                success: function() {
-                    messageSent = true;
-                }
+                contentType: 'application/json; charset=utf-8'
             });
 
             chatbar.value = '';
