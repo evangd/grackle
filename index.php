@@ -26,7 +26,19 @@ if (!isset($_SESSION['id'])) {
         <div id="sidebar">
             <div id="account">
                 <p>Hello there, <strong><?php echo htmlentities($_SESSION['first_name']); ?></strong>!</p>
+                <h3>Who's on?</h3>
+                <ul id="users">
+                <?php
+                $currUsers = $pdo->prepare('SELECT first_name, last_name 
+                    FROM users WHERE online = 1');
+                $currUsers->execute();
+                $rows = $currUsers->fetchAll(PDO::FETCH_ASSOC);
 
+                foreach ($rows as $row) {
+                    echo '<li>'. $row['first_name'] . ' ' . $row['last_name'] . '</li>';
+                }
+                ?>
+                </ul>
             </div>
         </div>
         <div id="messages"></div>
