@@ -77,6 +77,8 @@ if (!isset($_SESSION['id'])) {
             send.disabled = true;
         });
 
+        let lastMsg;
+
         function getNewChats() {
             $.ajax({
                 url: 'get-chat.php',
@@ -91,11 +93,12 @@ if (!isset($_SESSION['id'])) {
                          ${msg['message']}<br><span class="timestamp">${msg['time']}</span></p>`);
                     }
 
-                    if (messageSent) {
-                        $('#messages').scrollTop($('#messages')[0].scrollHeight);
-                    }
+                    const newLast = document.querySelector('#messages p:last-child');
 
-                    messageSent = false;
+                    if (!lastMsg.isEqualNode(newLast)) {
+                        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+                        lastMsg = newLast;
+                    }
 
                     setTimeout(getNewChats(), 4000);
                 }
