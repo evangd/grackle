@@ -77,7 +77,7 @@ if (!isset($_SESSION['id'])) {
             send.disabled = true;
         });
 
-        let lastMsg;
+        let lastMsg = '<p></p>';
 
         function getNewChats() {
             $.ajax({
