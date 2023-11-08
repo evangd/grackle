@@ -26,6 +26,7 @@ if (!isset($_SESSION['id'])) {
         <div id="sidebar">
             <div id="account">
                 <p>Hello there, <strong><?php echo htmlentities($_SESSION['first_name']); ?></strong>!</p>
+                <a href="logout.php" id="logout">Logout</a>
             </div>
             <h3>Who's on?</h3>
             <ul id="users">
