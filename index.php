@@ -29,21 +29,7 @@ if (!isset($_SESSION['id'])) {
                 <a href="logout.php" id="logout">Logout</a>
             </div>
             <h3>Who's on?</h3>
-            <ul id="users">
-            <?php
-            $currUsers = $pdo->prepare('SELECT id, first_name, last_name 
-                FROM users WHERE online = 1');
-            $currUsers->execute();
-            $rows = $currUsers->fetchAll(PDO::FETCH_ASSOC);
-
-            echo '<li>You</li>';
-            foreach ($rows as $row) {
-                if ($row['id'] !== $_SESSION['id']) {
-                    echo '<li>'. $row['first_name'] . ' ' . $row['last_name'] . '</li>';
-                }
-            }
-            ?>
-            </ul>
+            <ul id="users"></ul>
         </div>
         <div id="messages"></div>
         <form id="chatbar" method="POST" action="index.php">
@@ -95,10 +81,14 @@ if (!isset($_SESSION['id'])) {
             $.ajax({
                 url: 'get-chat.php',
                 cache: false,
-                success: function(messages) {
+                success: function(response) {
+                    const numUsers = response[0];
+                    const users = response.slice(1, numUsers);
+                    const messages = response.slice(numUsers);
+
                     $('#messages').empty();
                     for (let i = 0; i < messages.length; ++i) {
-                        msg = messages[i];
+                        let msg = messages[i];
 
                         $('#messages').append(`<p><strong> 
                         ${msg['first_name'] + ' ' + msg['last_name']}:</strong>
@@ -110,6 +100,15 @@ if (!isset($_SESSION['id'])) {
                     if (lastMsg !== newLast) {
                         $('#messages').scrollTop($('#messages')[0].scrollHeight);
                         lastMsg = newLast;
+                    }
+
+                    // update user list
+
+                    $('users').empty();
+                    for (let i = 0; i < users.length; ++i) {
+                        let user = users[i];
+
+                        $('#users').append(`<li>${user['first_name']} ${user['last_name']}</li>`);
                     }
 
                     setTimeout(getNewChats(), 4000);

@@ -33,7 +33,7 @@
             header('Location: index.php');
             return;
         } else {
-            $_SESSION['No account found. Nice try, pal.'];
+            // Need to include error messages
             header('Location: login.php');
             return;
         }

@@ -10,6 +10,15 @@ $stmt = $pdo->prepare('SELECT * FROM messages
     WHERE messages.id >' . ' ' . strval($_SESSION['start']) . ' ' . 
     'ORDER BY messages.id ASC');
 $stmt->execute();
-$return = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$msgs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-echo json_encode($return);
+$currUsers = $pdo->prepare('SELECT first_name, last_name 
+    FROM users WHERE online = 1 AND id <> :uid');
+$currUsers->execute(array(
+    ':uid' => $_SESSION['id']
+));
+$users = $currUsers->fetchAll(PDO::FETCH_ASSOC);
+
+$return = array_merge($users, $msgs);
+
+echo json_encode(array_unshift($return, sizeof($users)));
