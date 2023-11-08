@@ -17,6 +17,7 @@
             $_SESSION['first_name'] = $row['first_name'];
             $_SESSION['last_name'] = $row['last_name'];
             $_SESSION['color'] = $row['color'];
+            $_SESSION['last_beat'] = time(); // for heartbeat function
 
             $online = $pdo->prepare('UPDATE users SET online = 1 WHERE id = :uid');
             $online->execute(array(':uid' => $row['id']));

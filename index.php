@@ -123,6 +123,16 @@ if (!isset($_SESSION['id'])) {
             });
         }
 
+        function heartbeat() {
+            $.ajax({
+                url: 'heartbeat.php',
+                type: 'POST',
+                data: "ping"
+            });
+        }
+
+        setInterval(heartbeat, 5000);
+
         getNewChats();
     </script>
 </body>
