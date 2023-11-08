@@ -21,4 +21,6 @@ $users = $currUsers->fetchAll(PDO::FETCH_ASSOC);
 
 $return = array_merge($users, $msgs);
 
-echo json_encode(array_unshift($return, sizeof($users)));
+array_unshift($return, sizeof($users));
+
+echo json_encode($return);

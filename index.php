@@ -84,34 +84,34 @@ if (!isset($_SESSION['id'])) {
                 success: function(response) {
                     console.log(response);
 
-                    // const numUsers = response[0];
-                    // const users = response.slice(1, numUsers);
-                    // const messages = response.slice(numUsers);
+                    const numUsers = response[0];
+                    const users = response.slice(1, numUsers);
+                    const messages = response.slice(numUsers);
 
-                    // $('#messages').empty();
-                    // for (let i = 0; i < messages.length; ++i) {
-                    //     let msg = messages[i];
+                    $('#messages').empty();
+                    for (let i = 0; i < messages.length; ++i) {
+                        let msg = messages[i];
 
-                    //     $('#messages').append(`<p><strong> 
-                    //     ${msg['first_name'] + ' ' + msg['last_name']}:</strong>
-                    //      ${msg['message']}<br><span class="timestamp">${msg['time']}</span></p>`);
-                    // }
+                        $('#messages').append(`<p><strong> 
+                        ${msg['first_name'] + ' ' + msg['last_name']}:</strong>
+                         ${msg['message']}<br><span class="timestamp">${msg['time']}</span></p>`);
+                    }
 
-                    // const newLast = document.querySelector('#messages p:last-child');
+                    const newLast = document.querySelector('#messages p:last-child');
 
-                    // if (lastMsg !== newLast) {
-                    //     $('#messages').scrollTop($('#messages')[0].scrollHeight);
-                    //     lastMsg = newLast;
-                    // }
+                    if (lastMsg !== newLast) {
+                        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+                        lastMsg = newLast;
+                    }
 
-                    // // update user list
+                    // update user list
 
-                    // $('users').empty();
-                    // for (let i = 0; i < users.length; ++i) {
-                    //     let user = users[i];
+                    $('users').empty();
+                    for (let i = 0; i < users.length; ++i) {
+                        let user = users[i];
 
-                    //     $('#users').append(`<li>${user['first_name']} ${user['last_name']}</li>`);
-                    // }
+                        $('#users').append(`<li>${user['first_name']} ${user['last_name']}</li>`);
+                    }
 
                     setTimeout(getNewChats(), 4000);
                 }
