@@ -1,4 +1,5 @@
 <?php
+session_save_path('sessions');
 session_start();
 
 require_once 'pdo.php';
@@ -13,4 +14,3 @@ if ($_SESSION['last_beat'] - $prev_beat > 10) {
         ':uid' => $_SESSION['id']
     ));
 }
-
