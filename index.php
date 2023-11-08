@@ -113,7 +113,7 @@ if (!isset($_SESSION['id'])) {
                     //     $('#users').append(`<li>${user['first_name']} ${user['last_name']}</li>`);
                     // }
 
-                    // setTimeout(getNewChats(), 4000);
+                    setTimeout(getNewChats(), 4000);
                 }
             });
         }
