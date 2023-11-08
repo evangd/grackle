@@ -85,7 +85,7 @@ if (!isset($_SESSION['id'])) {
                     console.log(response);
 
                     const numUsers = response[0];
-                    const users = response.slice(1, numUsers);
+                    const users = response.slice(1, numUsers + 1);
                     const messages = response.slice(numUsers + 1);
 
                     $('#messages').empty();
@@ -106,7 +106,7 @@ if (!isset($_SESSION['id'])) {
 
                     // update user list
 
-                    $('users').empty();
+                    $('#users').empty();
                     for (let i = 0; i < users.length; ++i) {
                         let user = users[i];
 
