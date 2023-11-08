@@ -1,4 +1,5 @@
 <?php
+session_save_path('sessions');
 session_start();
 
 $stmt = $pdo->prepare('UPDATE users SET online = 0 WHERE id = :uid');
