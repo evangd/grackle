@@ -86,7 +86,7 @@ if (!isset($_SESSION['id'])) {
 
                     const numUsers = response[0];
                     const users = response.slice(1, numUsers);
-                    const messages = response.slice(numUsers);
+                    const messages = response.slice(numUsers + 1);
 
                     $('#messages').empty();
                     for (let i = 0; i < messages.length; ++i) {
