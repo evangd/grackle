@@ -123,10 +123,14 @@ if (!isset($_SESSION['id'])) {
         }
 
         function heartbeat() {
+            console.log('ba');
             $.ajax({
                 url: 'heartbeat.php',
                 type: 'POST',
-                data: 'ping'
+                data: 'ping',
+                success: function() {
+                    console.log('bum');
+                }
             });
         }
 
