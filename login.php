@@ -7,8 +7,12 @@
     if (isset($_POST['username']) && isset($_POST['password'])) {
 
         $stmt = $pdo->prepare('SELECT id, first_name, last_name, color from users
-            WHERE username = :un AND password = :pw AND online = 0');
-        $stmt->execute(array(':un' => $_POST['username'], ':pw' => $_POST['password']));
+            WHERE username = :un AND password = :pw AND last_online < :time');
+        $stmt->execute(array(
+            ':un' => $_POST['username'],
+            ':pw' => $_POST['password'],
+            ':time' => time() - 8
+        ));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($row !== false) {
@@ -17,10 +21,6 @@
             $_SESSION['first_name'] = $row['first_name'];
             $_SESSION['last_name'] = $row['last_name'];
             $_SESSION['color'] = $row['color'];
-            $_SESSION['last_beat'] = time(); // for heartbeat function
-
-            $online = $pdo->prepare('UPDATE users SET online = 1 WHERE id = :uid');
-            $online->execute(array(':uid' => $row['id']));
 
             // Get the most recent message and pull all session messages after that
             // NOTE: I'm just making a dummy message so that I don't have to change this lol
