@@ -82,7 +82,7 @@ if (!isset($_SESSION['id'])) {
                 url: 'get-chat.php',
                 cache: false,
                 success: function(response) {
-
+                    
                     const numUsers = response[0];
                     const users = response.slice(1, numUsers + 1);
                     const messages = response.slice(numUsers + 1);
