@@ -127,6 +127,7 @@ if (!isset($_SESSION['id'])) {
             console.log('ba');
             $.ajax({
                 url: 'heartbeat.php',
+                cache: 'false',
                 success: function() {
                     console.log('bum');
                 }
