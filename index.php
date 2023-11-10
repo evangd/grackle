@@ -130,12 +130,13 @@ if (!isset($_SESSION['id'])) {
                 cache: 'false',
                 success: function() {
                     console.log('bum');
+
+                    setTimeout(heartbeat, 3000);
                 }
             });
         }
 
-        setInterval(heartbeat, 3000);
-
+        heartbeat();
         getNewChats();
     </script>
 </body>
