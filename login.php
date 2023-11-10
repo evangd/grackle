@@ -22,7 +22,11 @@
             $_SESSION['last_name'] = $row['last_name'];
             $_SESSION['color'] = $row['color'];
 
-            // May want to add new last_online to user
+            $query = $pdo->prepare('UPDATE users SET last_online = :time WHERE id = :uid');
+            $query->execute(array(
+                ':time' => time(),
+                ':uid' => $_SESSION['id']
+            ));
 
             // Get the most recent message and pull all session messages after that
             // NOTE: I'm just making a dummy message so that I don't have to change this lol
