@@ -133,7 +133,7 @@ if (!isset($_SESSION['id'])) {
             });
         }
 
-        setInterval(heartbeat, 5000);
+        setInterval(heartbeat, 3000);
 
         getNewChats();
     </script>
