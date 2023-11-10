@@ -60,7 +60,7 @@
         <h1 class='login-title'>Grackle</h1>
         <?php
         $test = [];
-        sizeof($test);
+        echo sizeof($test);
             ?>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username">
