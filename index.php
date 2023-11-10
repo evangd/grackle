@@ -88,13 +88,11 @@ if (!isset($_SESSION['id'])) {
 
                     // make sure empty user list doesn't get into messages
                     if (numUsers === 0) {
-                        messages = response.slice(2);
+                        messages = response.slice(1);
                     } else {
                         users = response.slice(1, numUsers + 1);
                         messages = response.slice(numUsers + 1);
                     }
-
-                    console.log(messages);
                     
                     $('#messages').empty();
                     for (let i = 0; i < messages.length; ++i) {
