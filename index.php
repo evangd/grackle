@@ -112,18 +112,17 @@ if (!isset($_SESSION['id'])) {
 
                     // update user list
 
-                    if (numUsers > 0) {
-                        $('#users').empty();
+            
+                    $('#users').empty();
 
-                        if (users.length > 0 ) {
-                            for (let i = 0; i < users.length; ++i) {
-                                let user = users[i];
+                    if (numUsers > 0 ) {
+                        for (let i = 0; i < users.length; ++i) {
+                            let user = users[i];
 
-                                $('#users').append(`<li>${user['first_name']} ${user['last_name']}</li>`);
-                            }
-                        } else {
-                            $('#users').append('<li>Just you!</li>');
+                            $('#users').append(`<li>${user['first_name']} ${user['last_name']}</li>`);
                         }
+                    } else {
+                        $('#users').append('<li>Just you!</li>');
                     }
         
                     setTimeout(getNewChats(), 4000);
