@@ -126,7 +126,7 @@ if (!isset($_SESSION['id'])) {
             $.ajax({
                 url: 'heartbeat.php',
                 type: 'POST',
-                data: "ping"
+                data: 'ping'
             });
         }
 
