@@ -84,9 +84,16 @@ if (!isset($_SESSION['id'])) {
                 success: function(response) {
                     
                     const numUsers = response[0];
-                    const users = response.slice(1, numUsers + 1);
-                    const messages = response.slice(numUsers + 1);
+                    let users, messages;
 
+                    // make sure empty user list doesn't get into messages
+                    if (numUsers === 0) {
+                        messages = response.slice(2);
+                    } else {
+                        users = response.slice(1, numUsers + 1);
+                        messages = response.slice(numUsers + 1);
+                    }
+                    
                     $('#messages').empty();
                     for (let i = 0; i < messages.length; ++i) {
                         let msg = messages[i];
@@ -105,16 +112,18 @@ if (!isset($_SESSION['id'])) {
 
                     // update user list
 
-                    $('#users').empty();
+                    if (numUsers > 0) {
+                        $('#users').empty();
 
-                    if (users.length > 0 ) {
-                        for (let i = 0; i < users.length; ++i) {
-                            let user = users[i];
+                        if (users.length > 0 ) {
+                            for (let i = 0; i < users.length; ++i) {
+                                let user = users[i];
 
-                            $('#users').append(`<li>${user['first_name']} ${user['last_name']}</li>`);
+                                $('#users').append(`<li>${user['first_name']} ${user['last_name']}</li>`);
+                            }
+                        } else {
+                            $('#users').append('<li>Just you!</li>');
                         }
-                    } else {
-                        $('#users').append('<li>Just you!</li>');
                     }
         
                     setTimeout(getNewChats(), 4000);
