@@ -13,7 +13,7 @@ $stmt->execute();
 $msgs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $currUsers = $pdo->prepare('SELECT first_name, last_name 
-    FROM users WHERE online < :time AND id <> :uid');
+    FROM users WHERE online > :time AND id <> :uid');
 $currUsers->execute(array(
     ':time' => time() - 5
     ':uid' => $_SESSION['id']
