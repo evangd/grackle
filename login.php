@@ -69,6 +69,6 @@
         <button type="submit" name="login">Log In</button>
     </form>
     <p>or</p>
-    <a href="signup.php" id="create"><button>Create an Account</button></a>
+    <a href="signup.php"><button id="create">Create an Account</button></a>
 </body>
 </html>
