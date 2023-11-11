@@ -68,7 +68,7 @@ if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
 
         create.addEventListener('click', function(e) {
             if (signup.elements['password'].value !==
-                signup.element['password2'].value) {
+                signup.elements['password2'].value) {
                     e.preventDefault();
                     signup.prepend('<p style="color:red;">Passwords must match</p>');
                 }
