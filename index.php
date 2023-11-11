@@ -128,7 +128,7 @@ if (!isset($_SESSION['id'])) {
                 url: 'heartbeat.php',
                 cache: 'false',
                 success: function() {
-                    setTimeout(heartbeat, 2000);
+                    setTimeout(heartbeat, 1500);
                 }
             });
         }
