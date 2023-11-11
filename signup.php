@@ -6,7 +6,7 @@ require_once 'pdo.php';
 
 if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
 
-    $query = $pdo-prepare('INSERT INTO users 
+    $query = $pdo->prepare('INSERT INTO users 
         (username, password, first_name, last_name, color, last_online)
         VALUES (:un, :pw, :fn, :ln, black, :lo)');
     $query->execute(array(
