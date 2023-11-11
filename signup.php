@@ -45,7 +45,7 @@ if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form id="signup" method="POST">
+    <form id="signup" method="POST" name="signup">
         <h1 class='login-title'>Grackle</h1>
         <fieldset>
             <legend>Your Name</legend>
@@ -62,5 +62,17 @@ if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
         <input type="password" id="password2" name="password2" required>
         <button type="submit" name="signup">Create Account</button>
     </form>
+    <script>
+        const create = document.querySelector('button[type="submit"]');
+        const signup = document.forms['signup'];
+
+        create.addEventListener('click', function(e) {
+            if (signup.elements['password'].value !==
+                signup.element['password2'].value) {
+                    e.preventDefault();
+                    signup.prepend('<p style="color:red;">Passwords must match</p>');
+                }
+        });
+    </script>
 </body>
 </html>
