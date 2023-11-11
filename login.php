@@ -61,15 +61,15 @@
 </head>
 <body>
     <form id="login" method="POST">
-        <h1 class='login-title'>Grackle</h1>
+        <h1 class="login-title">Grackle</h1>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username">
         <label for="password">Password:</label>
         <input type="password" id="password" name="password">
         <button type="submit" name="login">Log In</button>
-        <p>or</p>
-        <button type="button"><a href="signup.php">Create an Account</a></button>
     </form>
+    <p>or</p>
+    <a href="signup.php">Create an Account</a>
     
 </body>
 </html>

@@ -22,7 +22,7 @@ body {
     gap: 0.25rem;
 }
 
-#login + p {
+#login ~ * {
     text-align: center;
 }
 
