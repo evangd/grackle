@@ -27,7 +27,8 @@ body {
 }
 
 #create {
-    text-align: center;
+    width: 300px;
+    margin: auto;
 }
 
 #login button {
