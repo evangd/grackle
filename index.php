@@ -98,7 +98,7 @@ if (!isset($_SESSION['id'])) {
 
                     const newLast = document.querySelector('#messages p:last-child');
 
-                    if (lastMsg !== newLast) {
+                    if (lastMsg.innerHTML !== newLast.innerHTML) {
                         console.log(lastMsg);
                         console.log(newLast);
                         $('#messages').scrollTop($('#messages')[0].scrollHeight);
