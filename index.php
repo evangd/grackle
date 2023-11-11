@@ -118,7 +118,7 @@ if (!isset($_SESSION['id'])) {
                         $('#users').append('<li>Just you!</li>');
                     }
         
-                    setTimeout(getNewChats(), 4000);
+                    setTimeout(getNewChats, 10);
                 }
             });
         }
