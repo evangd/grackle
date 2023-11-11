@@ -22,7 +22,11 @@ body {
     gap: 0.25rem;
 }
 
-#login ~ * {
+#login + p {
+    text-align: center;
+}
+
+#create {
     text-align: center;
 }
 
@@ -37,6 +41,10 @@ input[type="text"], input[type="password"] {
 .login-title {
     text-align: center;
 }
+
+/* signup form */
+
+
 
 /* chatroom grid */
 

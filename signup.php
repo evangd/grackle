@@ -50,7 +50,7 @@ if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
         <fieldset>
             <legend>Your Name</legend>
             <label for="first_name">First</label>
-            <input id="first_name" name="first_name" type="text" required>
+            <input id="first_name" name="first_name" type="text" required><br>
             <label for="last_name">Last</label>
             <input id="last_name" name="last_name" type="text" required>
         </fieldset>
