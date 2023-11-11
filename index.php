@@ -99,6 +99,8 @@ if (!isset($_SESSION['id'])) {
                     const newLast = document.querySelector('#messages p:last-child');
 
                     if (lastMsg !== newLast) {
+                        console.log(lastMSg);
+                        console.log(newLast);
                         $('#messages').scrollTop($('#messages')[0].scrollHeight);
                         lastMsg = newLast;
                     }
@@ -118,7 +120,7 @@ if (!isset($_SESSION['id'])) {
                         $('#users').append('<li>Just you!</li>');
                     }
         
-                    setTimeout(getNewChats(), 4000);
+                    setTimeout(getNewChats, 4000);
                 }
             });
         }
