@@ -67,8 +67,9 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password">
         <button type="submit" name="login">Log In</button>
+        <p>or</p>
+        <a href="signup.php"><button type="button">Create an Account</button></a>
     </form>
-    <p>or</p>
-    <a href="signup.php"><button id="create">Create an Account</button></a>
+    
 </body>
 </html>

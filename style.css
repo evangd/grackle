@@ -26,11 +26,6 @@ body {
     text-align: center;
 }
 
-#create {
-    width: 300px;
-    margin: auto;
-}
-
 #login button {
     font-family: inherit;
 }
