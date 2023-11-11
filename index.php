@@ -124,14 +124,11 @@ if (!isset($_SESSION['id'])) {
         }
 
         function heartbeat() {
-            console.log('ba');
             $.ajax({
                 url: 'heartbeat.php',
                 cache: 'false',
                 success: function() {
-                    console.log('bum');
-
-                    setTimeout(heartbeat, 3000);
+                    setTimeout(heartbeat, 2000);
                 }
             });
         }

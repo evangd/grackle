@@ -11,7 +11,7 @@
         $stmt->execute(array(
             ':un' => $_POST['username'],
             ':pw' => $_POST['password'],
-            ':time' => time() - 8
+            ':time' => time() - 5
         ));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
