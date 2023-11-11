@@ -96,11 +96,13 @@ if (!isset($_SESSION['id'])) {
                          ${msg['message']}<br><span class="timestamp">${msg['time']}</span></p>`);
                     }
 
-                    const newLast = document.querySelector('#messages p:last-child');
+                    if ($('#messages').childElementCount > 0) {
+                        const newLast = document.querySelector('#messages p:last-child');
 
-                    if (lastMsg.innerHTML !== newLast.innerHTML) {
-                        $('#messages').scrollTop($('#messages')[0].scrollHeight);
-                        lastMsg = newLast;
+                        if (lastMsg.innerHTML !== newLast.innerHTML) {
+                            $('#messages').scrollTop($('#messages')[0].scrollHeight);
+                            lastMsg = newLast;
+                        }
                     }
 
                     // update user list
