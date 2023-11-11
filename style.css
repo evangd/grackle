@@ -44,7 +44,13 @@ input[type="text"], input[type="password"] {
 
 /* signup form */
 
-
+.error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
 
 /* chatroom grid */
 
