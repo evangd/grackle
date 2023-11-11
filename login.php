@@ -68,7 +68,7 @@
         <input type="password" id="password" name="password">
         <button type="submit" name="login">Log In</button>
         <p>or</p>
-        <a href="signup.php"><button type="button">Create an Account</button></a>
+        <button type="button"><a href="signup.php">Create an Account</a></button>
     </form>
     
 </body>
