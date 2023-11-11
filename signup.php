@@ -18,8 +18,8 @@ if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
     ));
 
     $_SESSION['id'] = $pdo->lastInsertId();
-    $_SESSION['first_name'] = $row['first_name'];
-    $_SESSION['last_name'] = $row['last_name'];
+    $_SESSION['first_name'] = $_POST['first_name'];
+    $_SESSION['last_name'] = $_POST['last_name'];
 
     // redundant code? yes
 
