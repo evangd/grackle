@@ -72,7 +72,7 @@ if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
                     e.preventDefault();
                     const msg = document.createElement('p');
                     const passLabel = document.querySelector('label[for="password"]');
-                    msg.class = 'error';
+                    msg.classList.add('error');
                     msg.textContent = 'Passwords must match';
                     signup.insertBefore(msg, passLabel);
                 }
