@@ -26,6 +26,10 @@ body {
     text-align: center;
 }
 
+#create {
+    display: block;
+}
+
 #login button {
     font-family: inherit;
 }

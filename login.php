@@ -69,7 +69,7 @@
         <button type="submit" name="login">Log In</button>
     </form>
     <p>or</p>
-    <a href="signup.php">Create an Account</a>
+    <a href="signup.php" id="create">Create an Account</a>
     
 </body>
 </html>
