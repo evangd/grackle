@@ -96,10 +96,7 @@ if (!isset($_SESSION['id'])) {
                          ${msg['message']}<br><span class="timestamp">${msg['time']}</span></p>`);
                     }
 
-                    console.log($('#messages').childElementCount);
-
                     if ($('#messages')[0].childElementCount > 0) {
-                        console.log('kids!');
                         const newLast = document.querySelector('#messages p:last-child');
 
                         if (lastMsg.innerHTML !== newLast.innerHTML) {
