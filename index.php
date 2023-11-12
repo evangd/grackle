@@ -98,7 +98,7 @@ if (!isset($_SESSION['id'])) {
 
                     console.log($('#messages').childElementCount);
 
-                    if ($('#messages').childElementCount > 0) {
+                    if ($('#messages')[0].childElementCount > 0) {
                         console.log('kids!');
                         const newLast = document.querySelector('#messages p:last-child');
 
