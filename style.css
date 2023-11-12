@@ -18,6 +18,10 @@ button {
     font-size: inherit;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 #login, #signup {
     display: flex;
     flex-direction: column;
@@ -139,10 +143,6 @@ input[type="text"], input[type="password"] {
 #chatbar button:disabled {
     border-color: #ccc;
     background-color: #eee;
-}
-
-#chatbar button:hover {
-    cursor: pointer;
 }
 
 .timestamp {
