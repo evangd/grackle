@@ -1,4 +1,5 @@
 <?php
+session_save_path('sessions');
 session_start();
 
 require_once "pdo.php";
@@ -25,8 +26,10 @@ if (!isset($_SESSION['id'])) {
         <div id="sidebar">
             <div id="account">
                 <p>Hello there, <strong><?php echo htmlentities($_SESSION['first_name']); ?></strong>!</p>
-
+                <a href="logout.php" id="logout">Logout</a>
             </div>
+            <h3>Who's on?</h3>
+            <ul id="users"></ul>
         </div>
         <div id="messages"></div>
         <form id="chatbar" method="POST" action="index.php">
@@ -37,7 +40,6 @@ if (!isset($_SESSION['id'])) {
     <script>
         const chatbar = document.querySelector('textarea');
         const send = document.querySelector('button[name="send"]');
-        let messageSent = false;
 
         // check to see if send should be enabled
         chatbar.addEventListener('keyup', function(e) {
@@ -66,41 +68,74 @@ if (!isset($_SESSION['id'])) {
                     message: chatbar.value,
                     time: new Date().toLocaleTimeString('en-US')
                 }),
-                contentType: 'application/json; charset=utf-8',
-                success: function() {
-                    messageSent = true;
-                }
+                contentType: 'application/json; charset=utf-8'
             });
 
             chatbar.value = '';
             send.disabled = true;
         });
 
+        let lastMsg = '<p></p>';
+
         function getNewChats() {
             $.ajax({
                 url: 'get-chat.php',
                 cache: false,
-                success: function(messages) {
+                success: function(response) {
+                    
+                    const numUsers = response[0];
+                    const users = response.slice(1, numUsers + 1);
+                    const messages = response.slice(numUsers + 1);
+                    
                     $('#messages').empty();
                     for (let i = 0; i < messages.length; ++i) {
-                        msg = messages[i];
+                        let msg = messages[i];
 
                         $('#messages').append(`<p><strong> 
                         ${msg['first_name'] + ' ' + msg['last_name']}:</strong>
                          ${msg['message']}<br><span class="timestamp">${msg['time']}</span></p>`);
                     }
 
-                    if (messageSent) {
-                        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+                    if ($('#messages')[0].childElementCount > 0) {
+                        const newLast = document.querySelector('#messages p:last-child');
+
+                        if (lastMsg.innerHTML !== newLast.innerHTML) {
+                            $('#messages').scrollTop($('#messages')[0].scrollHeight);
+                            lastMsg = newLast;
+                        }
                     }
 
-                    messageSent = false;
+                    // update user list
 
-                    setTimeout(getNewChats(), 4000);
+            
+                    $('#users').empty();
+
+                    if (numUsers > 0 ) {
+                        for (let i = 0; i < users.length; ++i) {
+                            let user = users[i];
+
+                            $('#users').append(`<li>${user['first_name']} ${user['last_name']}</li>`);
+                        }
+                    } else {
+                        $('#users').append('<li>Just you!</li>');
+                    }
+        
+                    setTimeout(getNewChats, 10);
                 }
             });
         }
 
+        function heartbeat() {
+            $.ajax({
+                url: 'heartbeat.php',
+                cache: 'false',
+                success: function() {
+                    setTimeout(heartbeat, 1500);
+                }
+            });
+        }
+
+        heartbeat();
         getNewChats();
     </script>
 </body>
