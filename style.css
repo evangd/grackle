@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 }
 
 button {
@@ -66,8 +66,11 @@ input {
     border: none;
     border-radius: 20px;
     color: white;
-    font-style: italic;
     padding: 0.25rem 1rem;
+}
+
+input::placeholder {
+    font-style: italic;
 }
 
 input, button {
@@ -75,7 +78,6 @@ input, button {
     border: none;
     border-radius: 20px;
     color: white;
-    font-style: italic;
 }
 
 #signup fieldset input:last-child {
