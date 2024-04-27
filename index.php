@@ -24,7 +24,7 @@ if (!isset($_SESSION['id'])) {
 <body>
     <div id="grid-container">
         <div id="sidebar">
-            <img src="images/grackle1.svg" alt="Grackle">
+            <img id="chat-logo" src="images/grackle1.svg" alt="Grackle">
             <div id="account">
                 <p>Hello there, <strong><?php echo htmlentities($_SESSION['first_name']); ?></strong>!</p>
                 <a href="logout.php" id="logout">Logout</a>

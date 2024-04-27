@@ -203,3 +203,9 @@ input, button {
         grid-row: 3 / -1;
     }
 }
+
+/* chatroom decor */
+
+#chat-logo {
+    padding: 1rem;
+}
