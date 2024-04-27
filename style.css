@@ -2,6 +2,9 @@
     font-size: 16px;
     font-family: 'Nunito', sans-serif;
     --user-color: black;
+    --red: #c4342d;
+    --blue: #3d4491;
+    --yellow: #e1ca38;
 }
 
 html, body {
@@ -22,6 +25,10 @@ button:hover {
     cursor: pointer;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 #login, #signup {
     display: flex;
     flex-direction: column;
@@ -38,20 +45,34 @@ button:hover {
     display: block;
 }
 
+#login * {
+    margin-bottom: 1rem;
+}
+
 #login button {
     font-family: inherit;
+    margin-bottom: 0;
+    width: 100px;
+    align-self: center;
+    padding: 0.25rem 0;
 }
 
 input {
     font-size: inherit;
+    background-color: var(--blue);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-style: italic;
+    padding: 0.25rem 1rem;
 }
 
-input[type="text"], input[type="password"] {
-    margin-bottom: 1rem;
-}
-
-.login-title {
-    text-align: center;
+input, button {
+    background-color: var(--blue);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-style: italic;
 }
 
 /* signup form */

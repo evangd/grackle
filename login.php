@@ -61,12 +61,10 @@
 </head>
 <body>
     <form id="login" method="POST">
-        <h1 class="login-title">Grackle</h1>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-        <button type="submit" name="login">Log In</button>
+        <img src="images/grackle2.svg" alt="Grackle">
+        <input type="text" id="username" name="username" placeholder="username" aria-label="username">
+        <input type="password" id="password" name="password" placeholder="password" aria-label="password">
+        <button type="submit" name="login">log in</button>
     </form>
     <p>or</p>
     <a href="signup.php" id="create">Create an Account</a>
