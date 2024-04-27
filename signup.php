@@ -46,7 +46,7 @@ if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
 </head>
 <body>
     <form id="signup" method="POST" name="signup">
-        <img src="images/grackle1.svg" alt="Grackle">
+        <img src="images/grackle2.svg" alt="Grackle">
         <fieldset>
             <legend>Your Name</legend>
             <input id="first_name" name="first_name" type="text" placeholder="first" aria-label="first" required><br>
