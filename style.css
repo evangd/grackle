@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
 }
 
 button {
@@ -102,6 +102,7 @@ input, button {
 
 #grid-container {
     height: 100%;
+    align-self: stretch;
     
     display: grid;
 
