@@ -46,21 +46,16 @@ if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
 </head>
 <body>
     <form id="signup" method="POST" name="signup">
-        <h1 class='login-title'>Grackle</h1>
+        <img src="images/grackle1.svg" alt="Grackle">
         <fieldset>
             <legend>Your Name</legend>
-            <label for="first_name">First</label>
-            <input id="first_name" name="first_name" type="text" required><br>
-            <label for="last_name">Last</label>
-            <input id="last_name" name="last_name" type="text" required>
+            <input id="first_name" name="first_name" type="text" placeholder="first" aria-label="first" required><br>
+            <input id="last_name" name="last_name" type="text" placeholder="last" aria-label="last" required>
         </fieldset>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <label for="password2">Confirm Password:</label>
-        <input type="password" id="password2" name="password2" required>
-        <button type="submit" name="signup">Create Account</button>
+        <input type="text" id="username" name="username" placeholder="username" aria-label="username" required>
+        <input type="password" id="password" name="password" placeholder="password" aria-label="password" required>
+        <input type="password" id="password2" name="password2" placeholder="confirm password" aria-label="confirm password" required>
+        <button type="submit" name="signup">create account</button>
     </form>
     <script>
         const create = document.querySelector('button[type="submit"]');

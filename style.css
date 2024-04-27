@@ -46,16 +46,16 @@ a:hover {
     display: block;
 }
 
-#login * {
+#login *, #signup * {
     margin-bottom: 1rem;
 }
 
-#login button {
+#login button, #signup button {
     font-family: inherit;
     margin-bottom: 0;
-    width: 100px;
+    width: auto;
     align-self: center;
-    padding: 0.25rem 0;
+    padding: 0.25rem 2rem;
 }
 
 input {
@@ -74,6 +74,14 @@ input, button {
     border-radius: 20px;
     color: white;
     font-style: italic;
+}
+
+#signup fieldset input:last-child {
+    margin: 0;
+}
+
+#signup legend {
+    margin: 0;
 }
 
 /* signup form */
