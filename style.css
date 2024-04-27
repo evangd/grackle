@@ -35,7 +35,7 @@ a:hover {
     width: 300px;
     margin: auto;
     gap: 0.25rem;
-    margin-top: calc(50% - 150px); /* UGH */
+    margin-top: 2rem;
 }
 
 #login ~ * {
