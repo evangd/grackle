@@ -54,6 +54,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Grackle</title>
+    <link rel="icon" type="image/svg" href="images/favicon.svg">
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,6 +69,5 @@
     </form>
     <p>or</p>
     <a href="signup.php" id="create">Create an Account</a>
-    
 </body>
 </html>
