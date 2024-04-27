@@ -15,6 +15,10 @@ html, body {
 body {
     height: 100dvh;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
@@ -33,9 +37,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     width: 300px;
-    margin: auto;
     gap: 0.25rem;
-    margin-top: 2rem;
 }
 
 #login ~ * {
