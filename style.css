@@ -81,15 +81,23 @@ input, button {
     color: white;
 }
 
+
+/* signup form */
+
 #signup fieldset input:last-child {
     margin: 0;
 }
 
 #signup legend {
     margin: 0;
+    color: var(--blue);
+    font-weight: bold;
 }
 
-/* signup form */
+fieldset {
+    border: 2px solid var(--blue);
+    border-radius: 5px;
+}
 
 .error {
     color: red;
