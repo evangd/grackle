@@ -71,6 +71,7 @@ input {
 
 input::placeholder {
     font-style: italic;
+    opacity: 1;
 }
 
 input, button {
