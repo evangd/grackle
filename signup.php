@@ -39,6 +39,7 @@ if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Grackle</title>
+    <link rel="icon" type="image/svg" href="images/favicon.svg">
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +58,7 @@ if (isset($_POST['signup']) && ($_POST['password'] === $_POST['password2'])) {
         <input type="password" id="password2" name="password2" placeholder="confirm password" aria-label="confirm password" required>
         <button type="submit" name="signup">create account</button>
     </form>
+    <a href="login.php" class="turn-page">back</a>
     <script>
         const create = document.querySelector('button[type="submit"]');
         const signup = document.forms['signup'];
