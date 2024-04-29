@@ -85,6 +85,10 @@ input, button {
 
 /* signup form */
 
+#signup {
+    margin-bottom: 1rem;
+}
+
 #signup fieldset input:last-child {
     margin: 0;
 }
